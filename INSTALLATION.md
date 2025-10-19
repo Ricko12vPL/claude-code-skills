@@ -2,11 +2,12 @@
 
 ## 📦 Zawartość
 
-Otrzymałeś 3 profesjonalne Skills dla Claude Code:
+Otrzymałeś 4 profesjonalne Skills dla Claude Code:
 
 1. **python-programming** - Kompleksowy przewodnik po programowaniu w Python
 2. **software-engineering** - Architektura, wzorce projektowe, SOLID, best practices
 3. **machine-learning** - ML/DL, algorytmy, training, deployment, MLOps
+4. **quantitative-finance** - Trading algorithms, quant research, systematic trading
 
 ## 🚀 Instalacja
 
@@ -19,6 +20,7 @@ Skills będą dostępne we wszystkich projektach:
 cp -r python-programming ~/.claude/skills/
 cp -r software-engineering ~/.claude/skills/
 cp -r machine-learning ~/.claude/skills/
+cp -r quantitative-finance ~/.claude/skills/
 ```
 
 ### Metoda 2: Project Skills
@@ -31,22 +33,19 @@ mkdir -p .claude/skills
 cp -r python-programming .claude/skills/
 cp -r software-engineering .claude/skills/
 cp -r machine-learning .claude/skills/
+cp -r quantitative-finance .claude/skills/
 ```
 
-### Metoda 3: Plugin Marketplace (Opcjonalna)
+### Metoda 3: Wybiórcza instalacja
 
-Jeśli chcesz udostępnić Skills jako plugin:
+Jeśli potrzebujesz tylko niektórych Skills:
 
 ```bash
-# Utwórz repozytorium Git
-git init my-skills-repo
-cd my-skills-repo
-cp -r python-programming software-engineering machine-learning .
-git add .
-git commit -m "Initial commit: Python, Software Engineering, ML skills"
+# Tylko Python i Quant Finance
+cp -r python-programming quantitative-finance ~/.claude/skills/
 
-# W Claude Code zarejestruj jako plugin
-# (wymaga uruchomienia Claude Code)
+# Tylko ML i Software Engineering
+cp -r machine-learning software-engineering ~/.claude/skills/
 ```
 
 ## 📖 Jak używać Skills
@@ -55,22 +54,29 @@ git commit -m "Initial commit: Python, Software Engineering, ML skills"
 
 Skills są **automatycznie** wywoływane przez Claude, gdy:
 
-1. **Python Programming Skill** - Gdy piszesz kod w Python, refaktoryzujesz, debugujesz
+1. **Python Programming Skill** - Gdy piszesz kod w Python
    ```
    "Napisz funkcję w Python do przetwarzania danych CSV"
    "Zrefaktoruj ten kod zgodnie z PEP 8"
    ```
 
-2. **Software Engineering Skill** - Gdy projektujesz systemy, robisz code review
+2. **Software Engineering Skill** - Gdy projektujesz systemy
    ```
    "Zaprojektuj architekturę mikrousług dla e-commerce"
    "Review tego kodu pod kątem SOLID principles"
    ```
 
-3. **Machine Learning Skill** - Gdy budujesz modele ML, trenujesz sieci
+3. **Machine Learning Skill** - Gdy budujesz modele ML
    ```
    "Stwórz model klasyfikacji obrazów używając PyTorch"
    "Jak wdrożyć model ML do produkcji z FastAPI?"
+   ```
+
+4. **Quantitative Finance Skill** - Gdy pracujesz z trading i finance
+   ```
+   "Zbuduj backtesting framework dla mean reversion strategy"
+   "Implement order management system z risk checks"
+   "Optimize portfolio używając Black-Litterman"
    ```
 
 ### Przykłady użycia
@@ -80,11 +86,11 @@ Skills są **automatycznie** wywoływane przez Claude, gdy:
 "Pomóż mi zbudować REST API w FastAPI używając best practices"
 → Claude użyje: software-engineering + python-programming
 
-"Stwórz pipeline ML z preprocessing, training i deployment"
-→ Claude użyje: machine-learning + python-programming
+"Stwórz ML trading strategy z feature engineering i backtesting"
+→ Claude użyje: quantitative-finance + machine-learning + python-programming
 
-"Zaprojektuj system event-driven z microservices"
-→ Claude użyje: software-engineering
+"Design high-frequency trading system z low-latency architecture"
+→ Claude użyje: quantitative-finance + software-engineering
 ```
 
 ## ✅ Weryfikacja instalacji
@@ -102,12 +108,13 @@ ls .claude/skills/
 # python-programming/
 # software-engineering/
 # machine-learning/
+# quantitative-finance/
 ```
 
 Każdy folder powinien zawierać plik `SKILL.md`:
 
 ```bash
-cat ~/.claude/skills/python-programming/SKILL.md | head -20
+cat ~/.claude/skills/quantitative-finance/SKILL.md | head -20
 ```
 
 ## 🔄 Aktualizacja Skills
@@ -141,19 +148,31 @@ description: Co robi skill i kiedy go używać
 
 ### 1. Wymuś użycie konkretnego Skill
 ```
-"Użyj python-programming skill żeby sprawdzić czy ten kod jest zgodny z PEP 8"
+"Użyj quantitative-finance skill żeby zbudować backtesting framework"
 ```
 
 ### 2. Łącz wiele Skills
 ```
-"Używając software-engineering i machine-learning skills, 
-zaprojektuj architekturę systemu rekomendacji"
+"Używając quantitative-finance, machine-learning i python-programming skills, 
+stwórz ML-based trading strategy z deployment do produkcji"
 ```
 
 ### 3. Sprawdź co Claude załadował
 Claude pokazuje w "chain of thought" które Skills użył:
 ```
-Reading /home/user/.claude/skills/python-programming/SKILL.md
+Reading /home/user/.claude/skills/quantitative-finance/SKILL.md
+```
+
+### 4. Dostosuj Skills do swojego use case
+```bash
+# Edytuj Skill aby dodać własne strategie
+vim ~/.claude/skills/quantitative-finance/SKILL.md
+
+# Dodaj sekcję z twoimi specyficznymi wymaganiami
+## My Custom Trading Strategies
+
+### Strategy 1: Custom Mean Reversion
+[your content]
 ```
 
 ## 📋 Checklist pierwszego uruchomienia
@@ -161,8 +180,9 @@ Reading /home/user/.claude/skills/python-programming/SKILL.md
 - [ ] Skopiowałem foldery do `~/.claude/skills/` lub `.claude/skills/`
 - [ ] Sprawdziłem że pliki `SKILL.md` istnieją
 - [ ] Zrestartowałem Claude Code
-- [ ] Przetestowałem działanie: "Napisz funkcję w Python do..."
-- [ ] Claude automatycznie użył odpowiedniego Skill
+- [ ] Przetestowałem Python Skill: "Napisz funkcję Python z type hints"
+- [ ] Przetestowałem Quant Skill: "Implement backtesting framework"
+- [ ] Claude automatycznie użył odpowiednich Skills
 
 ## 🆘 Troubleshooting
 
@@ -179,12 +199,12 @@ Reading /home/user/.claude/skills/python-programming/SKILL.md
 **Rozwiązanie:**
 ```bash
 # Sprawdź poprawność YAML
-cat ~/.claude/skills/python-programming/SKILL.md | head -5
+cat ~/.claude/skills/quantitative-finance/SKILL.md | head -5
 
 # Powinno wyglądać tak:
 # ---
-# name: python-programming
-# description: Expert Python programming...
+# name: quantitative-finance
+# description: Expert guidance for quantitative...
 # ---
 ```
 
@@ -194,6 +214,59 @@ cat ~/.claude/skills/python-programming/SKILL.md | head -5
 1. Sprawdź uprawnienia do odczytu: `ls -la ~/.claude/skills/`
 2. Sprawdź czy folder zawiera `SKILL.md`
 3. Zobacz logi Claude Code
+
+### Problem: Za dużo Skills, wolne działanie
+
+**Rozwiązanie:**
+Skills używają progressive disclosure - każdy Skill to tylko ~30-50 tokenów.
+Nie powinno być problemów z wydajnością, ale możesz:
+```bash
+# Usuń nieużywane Skills
+rm -rf ~/.claude/skills/skill-name
+
+# Lub przenieś do backup
+mv ~/.claude/skills/unused-skill ~/claude-skills-backup/
+```
+
+## 🎓 Use Case - Quantitative Trading
+
+Przykładowy workflow dla quant developera:
+
+```bash
+# 1. Zainstaluj Skills
+cp -r python-programming quantitative-finance ~/.claude/skills/
+
+# 2. Otwórz Claude Code
+claude-code
+
+# 3. Research phase
+"Conduct statistical analysis na mean reversion signal 
+używając ADF test i half-life calculation"
+→ Claude użyje: quantitative-finance
+
+# 4. Development phase
+"Implement backtesting framework z:
+- Realistic transaction costs
+- Slippage modeling
+- Position sizing z Kelly criterion
+- Walk-forward optimization"
+→ Claude użyje: quantitative-finance + python-programming
+
+# 5. Production phase
+"Build production trading system z:
+- Order management
+- Risk monitoring
+- Real-time alerts
+- Performance tracking"
+→ Claude użyje: quantitative-finance + software-engineering
+
+# 6. ML Enhancement
+"Add ML layer z:
+- Feature engineering z technical indicators
+- XGBoost model dla signal generation
+- Model monitoring i retraining"
+→ Claude użyje: quantitative-finance + machine-learning
+```
 
 ## 📚 Dodatkowe zasoby
 
@@ -205,22 +278,28 @@ cat ~/.claude/skills/python-programming/SKILL.md | head -5
 
 Twoje Skills są zainstalowane i gotowe do użycia. Claude będzie automatycznie używał ich gdy wykryje odpowiedni kontekst w Twoich pytaniach.
 
-**Przykład pełnego workflow:**
+**Przykład pełnego workflow dla quantitative trading:**
 
 ```bash
 # 1. Zainstaluj Skills
-cp -r python-programming ~/.claude/skills/
+cp -r python-programming software-engineering machine-learning quantitative-finance ~/.claude/skills/
 
 # 2. Otwórz Claude Code
 claude-code
 
 # 3. Zapytaj Claude
-"Stwórz REST API w FastAPI z autentykacją JWT, 
-używając best practices i type hints"
+"Stwórz kompletny systematic trading system:
+- Mean reversion strategy z statistical tests
+- Professional backtesting z realistic assumptions  
+- ML enhancement z feature engineering
+- Risk management z Kelly criterion
+- Production deployment z monitoring"
 
-# 4. Claude automatycznie użyje:
-#    - python-programming skill (type hints, FastAPI)
-#    - software-engineering skill (API design, security)
+# 4. Claude automatycznie użyje wszystkie 4 Skills:
+#    - quantitative-finance (trading, backtesting, risk)
+#    - machine-learning (ML model, features)
+#    - python-programming (clean code, type hints)
+#    - software-engineering (architecture, deployment)
 ```
 
 ---

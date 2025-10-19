@@ -1,4 +1,4 @@
-# Claude Code Skills - Python, Software Engineering, Machine Learning
+# Claude Code Skills - Python, Software Engineering, ML, Quantitative Finance
 
 Profesjonalne Skills dla Claude Code zgodne z oficjalną specyfikacją Anthropic.
 
@@ -17,18 +17,8 @@ Profesjonalne Skills dla Claude Code zgodne z oficjalną specyfikacją Anthropic
 - ✅ Testing z pytest (fixtures, parametrize, mocking)
 - ✅ Performance optimization (comprehensions, generators, profiling)
 - ✅ Async programming (asyncio, async context managers)
-- ✅ Dependencies management (pyproject.toml, requirements.txt)
-- ✅ Structured logging (JSON formatting)
+- ✅ Dependencies management
 - ✅ Best practices checklist
-- ✅ Common pitfalls to avoid
-- ✅ Essential development tools (Black, Ruff, mypy, pytest)
-
-**Przykład użycia:**
-```
-"Napisz funkcję w Python z type hints do przetwarzania CSV"
-"Zrefaktoruj ten kod zgodnie z PEP 8"
-"Jak stworzyć custom exception w Python?"
-```
 
 ---
 
@@ -43,20 +33,10 @@ Profesjonalne Skills dla Claude Code zgodne z oficjalną specyfikacją Anthropic
 - ✅ Clean Code principles
 - ✅ Testing strategies (Test Pyramid, Unit, Integration, E2E)
 - ✅ CI/CD best practices (GitHub Actions, pre-commit hooks)
-- ✅ Code review checklist
 - ✅ API design (RESTful, versioning)
 - ✅ Database design (normalization, indexing, migrations)
-- ✅ Monitoring & Observability (logging, metrics, health checks)
-- ✅ Security best practices (validation, authentication, authorization)
-- ✅ Performance optimization (caching, query optimization)
-- ✅ Documentation standards
-
-**Przykład użycia:**
-```
-"Zaprojektuj microservices architecture dla e-commerce"
-"Review tego kodu pod kątem SOLID principles"
-"Jak zaimplementować CQRS pattern?"
-```
+- ✅ Monitoring & Observability
+- ✅ Security best practices
 
 ---
 
@@ -71,22 +51,30 @@ Profesjonalne Skills dla Claude Code zgodne z oficjalną specyfikacją Anthropic
 - ✅ Classical ML algorithms (Linear, Trees, SVM, KNN, Naive Bayes)
 - ✅ Ensemble methods (Random Forest, XGBoost, LightGBM, CatBoost)
 - ✅ Model evaluation (classification & regression metrics)
-- ✅ Cross-validation strategies
 - ✅ Hyperparameter tuning (Grid, Random, Bayesian)
 - ✅ Deep Learning z PyTorch (Neural Networks, CNN, RNN/LSTM)
 - ✅ Transfer Learning
 - ✅ MLOps (serialization, versioning, monitoring)
-- ✅ Model deployment (FastAPI, Docker, containerization)
-- ✅ Model interpretability (SHAP, LIME)
-- ✅ Production best practices
-- ✅ Data drift detection
+- ✅ Model deployment (FastAPI, Docker)
 
-**Przykład użycia:**
-```
-"Stwórz model klasyfikacji obrazów używając CNN w PyTorch"
-"Jak wdrożyć model ML do produkcji z FastAPI i Docker?"
-"Potrzebuję pipeline z preprocessing, training i monitoring"
-```
+---
+
+### 4. 📈 Quantitative Finance & Trading Skill
+
+**Kiedy użyć:** Trading algorithms, quantitative research, systematic trading
+
+**Co zawiera:**
+- ✅ Quantitative research framework (alpha research, backtesting)
+- ✅ Trading system architecture (OMS, execution systems)
+- ✅ Statistical methods (time series, GARCH, cointegration)
+- ✅ Factor models (multi-factor attribution)
+- ✅ Machine learning for trading (feature engineering, ML models)
+- ✅ Professional backtesting engine
+- ✅ Market microstructure (order book analysis, execution optimization)
+- ✅ Portfolio optimization (mean-variance, risk parity, Black-Litterman)
+- ✅ Risk management (VaR, position sizing, Kelly criterion)
+- ✅ Production deployment (monitoring, alerting, reconciliation)
+- ✅ Best practices for quant development
 
 ---
 
@@ -96,13 +84,13 @@ Profesjonalne Skills dla Claude Code zgodne z oficjalną specyfikacją Anthropic
 
 **Personal Skills** (dostępne wszędzie):
 ```bash
-cp -r python-programming software-engineering machine-learning ~/.claude/skills/
+cp -r python-programming software-engineering machine-learning quantitative-finance ~/.claude/skills/
 ```
 
 **Project Skills** (tylko w projekcie):
 ```bash
 mkdir -p .claude/skills
-cp -r python-programming software-engineering machine-learning .claude/skills/
+cp -r python-programming software-engineering machine-learning quantitative-finance .claude/skills/
 ```
 
 ### 2. Weryfikacja
@@ -112,6 +100,7 @@ ls ~/.claude/skills/
 # python-programming/
 # software-engineering/
 # machine-learning/
+# quantitative-finance/
 ```
 
 ### 3. Użycie
@@ -126,8 +115,8 @@ claude-code
 "Stwórz REST API w Python używając FastAPI i type hints"
 → Claude automatycznie użyje: python-programming + software-engineering
 
-"Zbuduj model ML do predykcji churn rate i wdróż go"
-→ Claude automatycznie użyje: machine-learning + python-programming
+"Zbuduj backtesting framework dla mean reversion strategy"
+→ Claude automatycznie użyje: quantitative-finance + python-programming
 ```
 
 ---
@@ -139,65 +128,112 @@ claude-code
 | "Napisz funkcję Python z type hints" | `python-programming` |
 | "Zaprojektuj microservices architecture" | `software-engineering` |
 | "Stwórz model klasyfikacji z XGBoost" | `machine-learning` |
-| "Build REST API with authentication" | `python-programming` + `software-engineering` |
-| "ML pipeline z deployment na produkcję" | `machine-learning` + `python-programming` + `software-engineering` |
-| "Review kodu pod kątem SOLID" | `software-engineering` |
-| "Optymalizuj ten kod Python" | `python-programming` |
-| "Preprocessing danych do ML" | `machine-learning` |
+| "Zbuduj trading system z order management" | `quantitative-finance` |
+| "Backtest momentum strategy" | `quantitative-finance` + `python-programming` |
+| "Optymalizuj portfolio używając mean-variance" | `quantitative-finance` |
+| "Deploy ML model do produkcji" | `machine-learning` + `software-engineering` |
+| "Factor analysis dla trading strategy" | `quantitative-finance` + `machine-learning` |
 
 ---
 
 ## 💡 Przykłady realnych użyć
 
-### Przykład 1: Full-Stack ML Project
+### Przykład 1: Quantitative Trading System
 ```
-Prompt: "Stwórz kompletny projekt ML:
-1. Preprocessing danych z CSV
-2. Training modelu XGBoost
-3. REST API w FastAPI
-4. Docker deployment
-5. Monitoring w produkcji"
+Prompt: "Stwórz kompletny trading system:
+1. Mean reversion strategy z statistical tests
+2. Backtesting framework z realistic costs
+3. Risk management z Kelly criterion
+4. Order management system
+5. Production deployment z monitoring"
 
 Claude użyje:
-✓ machine-learning (preprocessing, training, monitoring)
+✓ quantitative-finance (strategy, backtesting, risk, OMS)
 ✓ python-programming (clean code, type hints, async)
-✓ software-engineering (API design, deployment, best practices)
+✓ software-engineering (architecture, deployment, monitoring)
 ```
 
-### Przykład 2: Microservices Architecture
+### Przykład 2: ML Trading Strategy
 ```
-Prompt: "Zaprojektuj event-driven microservices 
-architecture dla systemu zamówień z:
-- Event Bus
-- CQRS pattern
-- API Gateway
-- Service discovery"
-
-Claude użyje:
-✓ software-engineering (architecture patterns, CQRS, API design)
-✓ python-programming (implementation details)
-```
-
-### Przykład 3: Production ML Pipeline
-```
-Prompt: "Build production-ready ML pipeline:
-- Data validation
-- Feature store
-- Model versioning with MLflow
-- A/B testing
-- Drift monitoring"
+Prompt: "Zbuduj ML-based trading strategy:
+- Feature engineering z market data
+- XGBoost model dla signal generation
+- Walk-forward optimization
+- Portfolio construction
+- Performance attribution"
 
 Claude użyje:
-✓ machine-learning (pipeline, MLOps, monitoring)
-✓ software-engineering (architecture, CI/CD)
+✓ quantitative-finance (trading framework, portfolio optimization)
+✓ machine-learning (ML model, feature engineering)
 ✓ python-programming (implementation)
+```
+
+### Przykład 3: High-Frequency Trading Infrastructure
+```
+Prompt: "Design HFT system z:
+- Low-latency market data feed
+- Order book analysis
+- Optimal execution (TWAP/VWAP)
+- Market impact modeling
+- Real-time risk monitoring"
+
+Claude użyje:
+✓ quantitative-finance (microstructure, execution, risk)
+✓ software-engineering (low-latency architecture)
+✓ python-programming (high-performance code)
+```
+
+---
+
+## 📊 Statystyki Skills
+
+| Skill | Rozmiar | Sekcje | Przykłady kodu | Główne tematy |
+|-------|---------|--------|----------------|---------------|
+| Python Programming | 12 KB | 15 | 30+ | PEP 8, testing, async, patterns |
+| Software Engineering | 28 KB | 20 | 40+ | SOLID, architecture, CI/CD |
+| Machine Learning | 27 KB | 25 | 50+ | ML workflow, PyTorch, MLOps |
+| Quantitative Finance | 58 KB | 18 | 60+ | Trading, backtesting, portfolio |
+| **TOTAL** | **125 KB** | **78** | **180+** | **4 domeny** |
+
+---
+
+## 🎯 Use Cases dla Quantitative Finance Skill
+
+### Quantitative Developer
+```
+"Zaimplementuj order management system z pre-trade risk checks"
+"Stwórz high-performance market data processor"
+"Build execution optimizer z TWAP/VWAP strategies"
+```
+
+### Quantitative Researcher
+```
+"Conduct statistical analysis na mean reversion signal"
+"Implement walk-forward optimization framework"
+"Test for cointegration między assets pairs"
+```
+
+### Systematic Trader
+```
+"Zaprojektuj momentum strategy z position sizing"
+"Implement risk-parity portfolio construction"
+"Build market regime detection system"
+```
+
+### Portfolio Manager
+```
+"Optimize portfolio używając Black-Litterman model"
+"Calculate factor attribution dla returns"
+"Implement dynamic rebalancing strategy"
 ```
 
 ---
 
 ## 📄 Pełna dokumentacja
 
-Zobacz szczegółowe instrukcje instalacji w pliku [INSTALLATION.md](./INSTALLATION.md)
+Zobacz szczegółowe instrukcje:
+- **INSTALLATION.md** - Instalacja i troubleshooting
+- **EXAMPLES.md** - Praktyczne przykłady promptów
 
 ---
 
@@ -216,9 +252,9 @@ Twoje Skills są gotowe. Claude będzie automatycznie używał ich gdy zauważy 
 **Szybki test:**
 ```bash
 # W Claude Code
-"Napisz funkcję Python z type hints do przetwarzania JSON"
+"Napisz backtesting framework z transaction costs i slippage modeling"
 
-# Claude automatycznie użyje python-programming skill! 🚀
+# Claude automatycznie użyje quantitative-finance skill! 🚀
 ```
 
 ---

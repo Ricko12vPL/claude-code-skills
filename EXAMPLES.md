@@ -35,17 +35,6 @@ Claude użyje: python-programming skill
 - Implementuje mocking z unittest.mock
 ```
 
-### Przykład 4: Refaktoryzacja
-```
-Prompt: "Zrefaktoruj ten kod zgodnie z PEP 8 i dodaj 
-type hints. Popraw też nazewnictwo zmiennych."
-
-Claude użyje: python-programming skill
-- Zastosuje PEP 8 style guide
-- Doda type hints
-- Użyje meaningful names
-```
-
 ---
 
 ## 🏗️ Software Engineering Skill
@@ -70,7 +59,6 @@ Claude użyje: software-engineering skill
 - Zaproponuje Event-Driven Architecture
 - Użyje message queue (RabbitMQ/Kafka)
 - Zaproponuje API Gateway pattern
-- Uwzględni service discovery
 ```
 
 ### Przykład 3: API Design
@@ -82,18 +70,6 @@ Claude użyje: software-engineering skill
 - Zastosuje REST best practices
 - Zaproponuje versioning strategy
 - Implementuje authentication/authorization
-- Doda proper HTTP status codes
-```
-
-### Przykład 4: Testing Strategy
-```
-Prompt: "Jaka powinna być strategia testowania dla 
-naszego projektu? Mamy microservices z bazą danych."
-
-Claude użyje: software-engineering skill
-- Zaproponuje Test Pyramid
-- Rozróżni Unit/Integration/E2E
-- Użyje contract testing dla microservices
 ```
 
 ---
@@ -114,7 +90,6 @@ Claude użyje: machine-learning skill
 - Feature engineering
 - Model training z XGBoost
 - Hyperparameter tuning
-- Model evaluation metrics
 ```
 
 ### Przykład 2: Deep Learning
@@ -126,7 +101,6 @@ Claude użyje: machine-learning skill
 - Stworzy CNN architecture
 - Implementuje data augmentation
 - Użyje transfer learning (ResNet/VGG)
-- Doda training loop z early stopping
 ```
 
 ### Przykład 3: MLOps
@@ -141,95 +115,205 @@ Claude użyje: machine-learning skill
 - MLflow dla versioning
 - Docker deployment
 - Monitoring (Prometheus)
-- A/B testing strategy
 ```
 
-### Przykład 4: Feature Engineering
-```
-Prompt: "Mam dataset z datami i kategoriami. 
-Jak zrobić feature engineering?"
+---
 
-Claude użyje: machine-learning skill
-- Date features (year, month, day_of_week)
-- Categorical encoding (one-hot, target)
-- Feature selection methods
-- Interaction features
+## 📈 Quantitative Finance & Trading Skill
+
+### Przykład 1: Backtesting Framework
+```
+Prompt: "Zbuduj professional backtesting framework z:
+- Realistic transaction costs i slippage
+- Position sizing z Kelly criterion
+- Walk-forward optimization
+- Performance metrics (Sharpe, Calmar, max DD)"
+
+Claude użyje: quantitative-finance skill
+- Backtesting engine z realistic assumptions
+- Kelly criterion position sizing
+- Walk-forward validation
+- Comprehensive metrics calculation
+```
+
+### Przykład 2: Statistical Arbitrage Strategy
+```
+Prompt: "Implement pairs trading strategy:
+- Cointegration test dla pair selection
+- Z-score mean reversion signals
+- Half-life calculation
+- Entry/exit thresholds optimization"
+
+Claude użyje: quantitative-finance skill
+- Statistical tests (ADF, cointegration)
+- Mean reversion strategy logic
+- Parameter optimization
+- Backtesting with proper validation
+```
+
+### Przykład 3: Order Management System
+```
+Prompt: "Build order management system z:
+- Pre-trade risk checks
+- Order routing logic
+- Fill simulation
+- Position reconciliation"
+
+Claude użyje: quantitative-finance skill
+- OMS architecture
+- Risk management integration
+- Order lifecycle management
+- Real-time position tracking
+```
+
+### Przykład 4: Portfolio Optimization
+```
+Prompt: "Optimize portfolio używając:
+- Mean-variance optimization
+- Risk parity approach
+- Black-Litterman with views
+- Rebalancing strategy"
+
+Claude użyje: quantitative-finance skill
+- Portfolio optimization algorithms
+- Risk models
+- Constraint handling
+- Performance attribution
+```
+
+### Przykład 5: Market Microstructure Analysis
+```
+Prompt: "Analyze order book dynamics:
+- Bid-ask spread analysis
+- Order book imbalance
+- Market impact modeling
+- Optimal execution (TWAP/VWAP)"
+
+Claude użyje: quantitative-finance skill
+- Order book processing
+- Microstructure metrics
+- Execution algorithms
+- Transaction cost analysis
+```
+
+### Przykład 6: ML Trading Strategy
+```
+Prompt: "Stwórz ML-based trading strategy:
+- Feature engineering z technical indicators
+- XGBoost dla signal generation
+- Walk-forward validation
+- Risk-adjusted position sizing"
+
+Claude użyje: quantitative-finance + machine-learning
+- Financial feature engineering
+- ML model training z cross-validation
+- Backtesting framework
+- Risk management
 ```
 
 ---
 
 ## 🎯 Kombinacje Skills
 
-### Przykład 1: Full Stack ML Project
+### Przykład 1: Complete Quant Trading System
 ```
-Prompt: "Stwórz kompletny projekt:
-1. Model ML w Python
-2. REST API z FastAPI
-3. Deployment z Docker
-4. CI/CD pipeline
-5. Monitoring"
+Prompt: "Stwórz kompletny systematic trading system:
+1. Statistical arbitrage strategy z mean reversion
+2. Backtesting framework z realistic costs
+3. ML enhancement z feature engineering
+4. Risk management z VaR limits
+5. Production deployment z monitoring
+6. REST API dla trade signals"
 
-Claude użyje wszystkie 3 skills:
-✓ machine-learning: model, training, evaluation
+Claude użyje wszystkie 4 skills:
+✓ quantitative-finance: strategy, backtesting, risk management
+✓ machine-learning: ML model, feature engineering
 ✓ python-programming: clean code, type hints, async
-✓ software-engineering: API design, CI/CD, monitoring
+✓ software-engineering: architecture, API design, deployment
 ```
 
-### Przykład 2: Production-Ready System
+### Przykład 2: High-Frequency Trading Infrastructure
 ```
-Prompt: "Build production system dla real-time predictions z:
-- High availability
-- Load balancing
-- Caching
-- Monitoring
-- Logging"
+Prompt: "Design HFT system z:
+- Low-latency market data processing
+- Order book analysis w real-time
+- Optimal execution algorithms
+- Pre-trade risk checks
+- Performance monitoring
+- Microservices architecture"
 
 Claude użyje:
-✓ software-engineering: architecture, HA, monitoring
-✓ python-programming: implementation, logging
-✓ machine-learning: model serving, optimization
+✓ quantitative-finance: microstructure, execution, risk
+✓ software-engineering: low-latency design, microservices
+✓ python-programming: high-performance implementation
 ```
 
-### Przykład 3: Code Review
+### Przykład 3: Quantitative Research Platform
 ```
-Prompt: "Review tego ML projektu pod kątem:
-- Code quality
-- Architecture
-- ML best practices"
+Prompt: "Build research platform dla alpha discovery:
+- Data pipeline z multiple sources
+- Feature store dla ML
+- Backtesting engine z walk-forward
+- Factor analysis tools
+- Performance attribution
+- Research notebook integration"
 
-Claude użyje wszystkie 3 skills:
-✓ python-programming: PEP 8, type hints, testing
-✓ software-engineering: SOLID, patterns, structure
-✓ machine-learning: ML practices, evaluation
+Claude użyje:
+✓ quantitative-finance: research framework, factors
+✓ machine-learning: feature store, ML pipeline
+✓ software-engineering: data architecture
+✓ python-programming: implementation
+```
+
+### Przykład 4: Algorithmic Trading Production System
+```
+Prompt: "Deploy algorithmic trading system z:
+- Multiple trading strategies
+- Real-time position management
+- Risk limits monitoring
+- PnL tracking i attribution
+- Automated alerts
+- Trade reconciliation"
+
+Claude użyje:
+✓ quantitative-finance: trading logic, risk, PnL
+✓ software-engineering: production architecture, monitoring
+✓ python-programming: async operations, logging
 ```
 
 ---
 
 ## 💡 Pro Tips
 
-### Tip 1: Bądź konkretny
+### Tip 1: Bądź konkretny w financial context
 ```
-❌ "Pomóż mi z kodem"
-✅ "Napisz funkcję Python z type hints do parsowania CSV"
-```
-
-### Tip 2: Wymień technologie
-```
-❌ "Stwórz model ML"
-✅ "Stwórz model klasyfikacji używając XGBoost z hyperparameter tuning"
+❌ "Stwórz trading strategy"
+✅ "Implement momentum strategy z 20-day lookback, 
+    2-sigma entry threshold i Kelly position sizing"
 ```
 
-### Tip 3: Określ kontekst
+### Tip 2: Wymień konkretne metody
 ```
-❌ "Zaprojektuj system"
-✅ "Zaprojektuj event-driven microservices dla e-commerce 
-     z payment, inventory i order services"
+❌ "Optimize portfolio"
+✅ "Optimize portfolio używając mean-variance optimization 
+    z constraints: max 10% per position, sector limits"
 ```
 
-### Tip 4: Wymuś konkretny Skill (jeśli potrzebne)
+### Tip 3: Określ validation approach
 ```
-"Używając python-programming skill, zrefaktoruj ten kod 
-zgodnie z PEP 8 i dodaj type hints"
+❌ "Backtest strategy"
+✅ "Backtest strategy z walk-forward optimization (2-year 
+    training, 6-month testing) i realistic transaction costs"
+```
+
+### Tip 4: Łącz domain expertise
+```
+"Używając quantitative-finance i machine-learning skills,
+build ML trading strategy z:
+- Feature engineering z technical + fundamental data
+- LightGBM model z proper cross-validation
+- Risk-adjusted position sizing
+- Production monitoring"
 ```
 
 ---
@@ -258,50 +342,144 @@ z early stopping i learning rate scheduling"
 ```
 **Oczekiwane:** machine-learning skill
 
-### Test 4: Multiple Skills
+### Test 4: Quantitative Finance
 ```
-"Build complete ML system:
-- XGBoost model
-- FastAPI endpoint  
-- Docker deployment
-- Prometheus monitoring
-- Structured logging"
+"Implement pairs trading strategy z cointegration test,
+mean reversion signals, i walk-forward optimization"
 ```
-**Oczekiwane:** wszystkie 3 skills
+**Oczekiwane:** quantitative-finance skill
+
+### Test 5: Multiple Skills - Quant System
+```
+"Build complete algorithmic trading system:
+- Mean reversion strategy z statistical tests
+- Professional backtesting framework
+- ML signal enhancement z XGBoost
+- Risk management z VaR limits
+- REST API deployment
+- Real-time monitoring"
+```
+**Oczekiwane:** wszystkie 4 skills
 
 ---
 
 ## 📊 Matryca promptów
 
-| Chcę... | Używaj słów kluczowych | Skill |
-|---------|------------------------|-------|
+| Chcę... | Używaj słów kluczowych | Skills |
+|---------|------------------------|--------|
 | Napisać kod Python | "function", "type hints", "pytest" | Python |
-| Zaprojektować system | "architecture", "microservices", "design" | SWE |
-| Zbudować model ML | "model", "training", "evaluation" | ML |
-| Review kodu | "SOLID", "clean code", "refactor" | SWE |
-| Deploy model | "deployment", "docker", "API" | ML + SWE |
-| Optymalizować kod | "performance", "async", "profiling" | Python |
-| Testować | "pytest", "mocking", "integration" | Python/SWE |
+| Zaprojektować system | "architecture", "microservices" | SWE |
+| Zbudować model ML | "model", "training", "PyTorch" | ML |
+| Trading strategy | "backtest", "signals", "portfolio" | Quant |
+| Quant research | "statistical test", "factor analysis" | Quant |
+| Order execution | "OMS", "execution", "slippage" | Quant |
+| Portfolio opt | "mean-variance", "risk parity" | Quant |
+| Market microstructure | "order book", "market impact" | Quant |
+| ML trading | "feature engineering", "ML model" | Quant + ML |
+| Production trading | "deployment", "monitoring", "risk" | Quant + SWE |
 
 ---
 
-## 🎓 Learning Path
+## 🎓 Learning Path - Quantitative Trading
 
 ### Beginner
-1. Zacznij od pojedynczych Skills
-2. Używaj prostych, konkretnych promptów
-3. Analizuj wygenerowany kod
+1. Zacznij od prostych strategii
+   ```
+   "Implement simple moving average crossover strategy"
+   "Calculate Sharpe ratio dla returns"
+   ```
+
+2. Naucz się backtesting basics
+   ```
+   "Build basic backtesting framework z transaction costs"
+   ```
+
+3. Zrozum risk management
+   ```
+   "Implement position sizing z fixed percentage"
+   ```
 
 ### Intermediate  
-1. Łącz 2-3 Skills w jednym zadaniu
-2. Prosij o best practices
-3. Implementuj w realnych projektach
+1. Statistical arbitrage
+   ```
+   "Test for cointegration i implement pairs trading"
+   ```
+
+2. Factor models
+   ```
+   "Build multi-factor model z Fama-French factors"
+   ```
+
+3. ML enhancement
+   ```
+   "Add ML layer do existing strategy"
+   ```
 
 ### Advanced
-1. Prosij o review kompleksowych systemów
-2. Łącz wszystkie Skills
-3. Buduj production-ready solutions
+1. Complex strategies
+   ```
+   "Build multi-strategy portfolio z risk allocation"
+   ```
+
+2. Production systems
+   ```
+   "Deploy trading system z real-time monitoring"
+   ```
+
+3. Research automation
+   ```
+   "Build automated alpha discovery platform"
+   ```
 
 ---
 
-Powodzenia! 🚀
+## 🚀 Real-World Scenarios
+
+### Scenario 1: Junior Quant Developer
+```
+"Jestem junior quant developer. Pomóż mi:
+1. Zrozumieć backtesting best practices
+2. Implement simple mean reversion strategy
+3. Add proper transaction costs
+4. Calculate performance metrics"
+
+Claude użyje: quantitative-finance + python-programming
+```
+
+### Scenario 2: Quantitative Researcher
+```
+"Conducting research na momentum anomaly:
+1. Statistical tests dla momentum effect
+2. Factor regression analysis
+3. Controlling for risk factors
+4. Out-of-sample validation"
+
+Claude użyje: quantitative-finance + machine-learning
+```
+
+### Scenario 3: Trading System Developer
+```
+"Building production trading system:
+1. Low-latency architecture
+2. Order management system
+3. Real-time risk monitoring
+4. Trade reconciliation
+5. Automated alerts"
+
+Claude użyje: quantitative-finance + software-engineering
+```
+
+### Scenario 4: Portfolio Manager
+```
+"Optimizing multi-asset portfolio:
+1. Mean-variance optimization
+2. Risk budgeting across strategies
+3. Dynamic rebalancing
+4. Performance attribution"
+
+Claude użyje: quantitative-finance
+```
+
+---
+
+Powodzenia w budowaniu trading systems! 🚀📈
