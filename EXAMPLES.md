@@ -211,6 +211,92 @@ Claude użyje: quantitative-finance + machine-learning
 - Risk management
 ```
 
+### Przykład 7: Senior Quantitative Developer (role-specific Skill)
+```
+Prompt: "Reduce P99 latency of feed-handler to < 50 µs, show flamegraph
+before/after and describe changes in memory allocation"
+
+Claude użyje: senior-quantitative-developer
+- Hot path profiling and flamegraph analysis
+- Elimination of allocations on critical path
+- NIC/IRQ/RSS tuning and end-to-end timestamping
+- Structured approach: Outcomes → Inputs → Implementation → Validation
+```
+
+### Przykład 8: Senior Quantitative Researcher (role-specific Skill)
+```
+Prompt: "Conduct walk-forward for momentum strategy with realistic costs,
+check for leakage and prepare alpha stability report (OOS)"
+
+Claude użyje: senior-quantitative-researcher
+- Bias controls (look-ahead, survivorship)
+- Time-series CV / walk-forward and ablation studies
+- Capacity/impact modeling and live↔backtest tracking
+- Research pipeline: Hypothesis → Data → Model → Validation → Production
+```
+
+### Przykład 9: Senior Systematic Trader (role-specific Skill)
+```
+Prompt: "Build TCA dashboard (venue×order type×time),
+propose participation/urgency adjustments for high volatility regime"
+
+Claude użyje: senior-systematic-trader
+- TCA and cost segmentation
+- Execution calibration (TWAP/VWAP/IS, routing)
+- Canary rollout and rollback conditions
+- Operating workflow: Monitor → Calibrate → Adjust → Reconcile
+```
+
+### Przykład 10: Senior Quantitative Trader (role-specific Skill)
+```
+Prompt: "Prepare quarterly attribution review (alpha/beta/costs),
+recommend sizing and hedging adjustments for lower maxDD while maintaining CAGR"
+
+Claude użyje: senior-quantitative-trader
+- Portfolio KPIs (PnL, MAR/Calmar, maxDD)
+- Factor control and capacity management
+- Rollout/rollback decisions based on KPIs and TCA
+- Lifecycle management: Objectives → Calibration → Oversight → Review
+```
+
+---
+
+## 🏢 Role-specific Skills - Struktura zgodna z Anthropic
+
+Wszystkie 4 role-specific Skills są zgodne z oficjalną dokumentacją Anthropic i zawierają:
+
+### ✅ Frontmatter (metadata - zawsze ładowane)
+```yaml
+---
+name: skill-name              # ≤64 znaki
+description: brief purpose    # ≤1024 znaki
+---
+```
+
+### ✅ Instructions (ładowane przy użyciu)
+- **When to Use**: kiedy aktywować ten Skill
+- **Expected Outcomes**: mierzalne rezultaty
+- **Required Inputs**: wymagane dane/kontekst
+- **Implementation Steps**: przepływ pracy krok po kroku
+- **Quality Checklist**: kontrola jakości
+- **Metrics & Validation**: jak mierzyć sukces
+- **Common Pitfalls**: czego unikać
+
+### ✅ Tools & Technologies (ładowane na żądanie)
+Stack technologiczny specyficzny dla roli
+
+### ✅ Examples (ładowane na żądanie)
+Gotowe prompty i zadania
+
+### ✅ References (ładowane na żądanie)
+Linki do oficjalnych źródeł (firmy top-tier + Anthropic)
+
+**Zalety tego podejścia:**
+- ⚡ **Progressive loading** - Claude ładuje tylko to, co jest potrzebne
+- 🔗 **Composability** - Skills mogą współpracować (np. senior-quant-researcher + machine-learning)
+- 📱 **Portability** - działa w Claude.ai, Claude Code, API
+- 🎯 **Specificity** - precyzyjne guidance dla konkretnej roli i zadania
+
 ---
 
 ## 🎯 Kombinacje Skills
@@ -365,6 +451,8 @@ mean reversion signals, i walk-forward optimization"
 
 ## 📊 Matryca promptów
 
+### Podstawowe Skills
+
 | Chcę... | Używaj słów kluczowych | Skills |
 |---------|------------------------|--------|
 | Napisać kod Python | "function", "type hints", "pytest" | Python |
@@ -377,6 +465,15 @@ mean reversion signals, i walk-forward optimization"
 | Market microstructure | "order book", "market impact" | Quant |
 | ML trading | "feature engineering", "ML model" | Quant + ML |
 | Production trading | "deployment", "monitoring", "risk" | Quant + SWE |
+
+### Role-specific Skills (Senior Positions)
+
+| Role | Użyj gdy... | Kluczowe słowa | Skill |
+|------|------------|----------------|-------|
+| **Quant Developer** | Optymalizacja latencji/throughput | "latency", "P99", "profiling", "flamegraph" | senior-quantitative-developer |
+| **Quant Researcher** | Alpha research i validation | "walk-forward", "bias", "OOS", "capacity" | senior-quantitative-researcher |
+| **Systematic Trader** | Live execution i TCA | "TCA", "execution", "venue", "rollout" | senior-systematic-trader |
+| **Quant Trader** | Portfolio i PnL management | "attribution", "KPI", "sizing", "hedging" | senior-quantitative-trader |
 
 ---
 
@@ -478,6 +575,104 @@ Claude użyje: quantitative-finance + software-engineering
 4. Performance attribution"
 
 Claude użyje: quantitative-finance
+```
+
+---
+
+## 🚀 Advanced Scenarios - Role-specific Skills
+
+### Scenario 5: Senior Quantitative Developer @ HFT Firm
+```
+"Jestem Senior Quant Developer w HFT. Potrzebuję:
+1. Zredukować P99 latencji market data handlera z 200µs do <50µs
+2. Zaimplementować bounded backpressure dla peak volume
+3. Dodać end-to-end timestamping z PTP
+4. Przygotować canary deployment z automated rollback
+5. Dashboardy observability (latency histograms, flamegraphs)"
+
+Claude użyje: senior-quantitative-developer
+- Structured approach: Outcomes → Inputs → Implementation → Validation
+- Hot path optimization (C++, zero-copy, lock-free)
+- Network tuning (NIC/IRQ/RSS, kernel bypass)
+- CI/CD hardening (canary, rollback, SLOs)
+```
+
+### Scenario 6: Senior Quantitative Researcher @ Hedge Fund
+```
+"Prowadzę research nad equity momentum. Potrzebuję:
+1. Pipeline danych z kontrolą biasów (survivorship, look-ahead)
+2. Feature engineering (microstructure, technical, fundamental)
+3. Walk-forward validation z realistic costs/impact
+4. Ablation study i sensitivity analysis
+5. Capacity modeling i live-to-backtest tracking
+6. Dokumentacja i handover do production"
+
+Claude użyje: senior-quantitative-researcher
+- Research pipeline: Hypothesis → Data → Features → Model → Validation
+- Bias controls i robustness checks
+- Production-ready artifacts (versioned, documented, tested)
+```
+
+### Scenario 7: Senior Systematic Trader @ Prop Trading
+```
+"Zarządzam live systematic strategies. Potrzebuję:
+1. TCA dashboard (segmentacja: venue×order type×time)
+2. Execution parameter tuning dla high-volatility regime
+3. Canary rollout nowej wersji strategii z kill-switch
+4. Daily reconciliation automation
+5. Incident playbooks dla data/OMS/venue outages"
+
+Claude użyje: senior-systematic-trader
+- Operating workflow: Monitor → Calibrate → Adjust → Reconcile
+- TCA optimization i execution quality
+- Governance (canary, rollback, compliance)
+```
+
+### Scenario 8: Senior Quantitative Trader @ Multi-Manager
+```
+"Prowadzę multi-strategy portfolio. Potrzebuję:
+1. Quarterly attribution review (alpha/beta/costs breakdown)
+2. Factor exposure analysis i rebalancing recommendations
+3. Sizing/hedging adjustments dla maxDD reduction
+4. Rollout decision framework (KPIs, thresholds, escalation)
+5. Automated KPI tracking i alerts"
+
+Claude użyje: senior-quantitative-trader
+- Lifecycle: Objectives → Calibration → Oversight → Review
+- Data-driven decisions (attribution, TCA, risk)
+- Portfolio governance i discipline
+```
+
+---
+
+## 🎯 Wybór odpowiedniego Skill - Decision Tree
+
+```
+Pytanie: Jak wybrać odpowiedni Skill?
+
+┌─ Pracujesz z trading/finance? ─────────────────┐
+│                                                 │
+│  NIE → python-programming / software-eng / ML  │
+│                                                 │
+│  TAK ↓                                          │
+│  ┌─ Jaka rola/zadanie? ────────────────────┐   │
+│  │                                          │   │
+│  │ Infrastructure/latency optimization?     │   │
+│  │ → senior-quantitative-developer          │   │
+│  │                                          │   │
+│  │ Alpha research/strategy development?     │   │
+│  │ → senior-quantitative-researcher         │   │
+│  │                                          │   │
+│  │ Live execution/TCA/operations?           │   │
+│  │ → senior-systematic-trader               │   │
+│  │                                          │   │
+│  │ Portfolio management/attribution/PnL?    │   │
+│  │ → senior-quantitative-trader             │   │
+│  │                                          │   │
+│  │ General trading/backtesting?             │   │
+│  │ → quantitative-finance (base)            │   │
+│  └──────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────┘
 ```
 
 ---

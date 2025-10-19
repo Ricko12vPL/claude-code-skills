@@ -1,6 +1,6 @@
 ---
 name: quantitative-finance
-description: Expert guidance for quantitative finance, algorithmic trading, systematic trading strategies, quantitative research, and trading systems development. Use when developing trading algorithms, backtesting strategies, building trading infrastructure, conducting quantitative research, or implementing production trading systems.
+description: Expert guidance for algorithmic trading and quantitative research. Use when developing trading strategies, backtesting, building trading systems, or conducting quantitative analysis.
 ---
 
 # Quantitative Finance & Trading

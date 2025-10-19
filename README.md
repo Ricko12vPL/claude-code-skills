@@ -76,6 +76,40 @@ Profesjonalne Skills dla Claude Code zgodne z oficjalną specyfikacją Anthropic
 - ✅ Production deployment (monitoring, alerting, reconciliation)
 - ✅ Best practices for quant development
 
+#### 4.a Role-specific Skills (Quant) 🆕
+
+Dodaliśmy 4 wyspecjalizowane Skills przeznaczone dla ról seniorskich w tradingu ilościowym, oparte na wymaganiach z top firm (Citadel, Jane Street, HRT, Jump, Two Sigma, Point72, PDT, Arrowstreet). Każdy jest osobnym plikiem w `quantitative-finance/`:
+
+**`Senior-Quantitative-Developer.SKILL.md`**
+- Low-latency infrastructure (market data, execution, risk)
+- Performance optimization (P50/P95/P99 latency, throughput)
+- Production hardening (observability, CI/CD, incident response)
+- Stack: C++20/23, Python, Bazel/CMake, DPDK/XDP, kdb+/q
+
+**`Senior-Quantitative-Researcher.SKILL.md`**
+- Alpha research pipeline (hypothesis → validation → production)
+- Bias-safe backtesting (look-ahead, survivorship, costs)
+- Walk-forward, capacity modeling, live↔backtest tracking
+- Stack: Python, pandas/NumPy, scikit-learn, PyTorch, kdb+/q
+
+**`Senior-Systematic-Trader.SKILL.md`**
+- Live PnL ownership and execution management
+- TCA optimization (venue, order type, timing)
+- Canary rollout/rollback with governance
+- Stack: Python, SQL/kdb+, OMS/EMS, Grafana
+
+**`Senior-Quantitative-Trader.SKILL.md`**
+- Portfolio-level strategy ownership
+- KPI tracking (PnL, Sharpe, MAR, maxDD)
+- Attribution (alpha/beta/costs) and sizing/hedging
+- Stack: Python, SQL/kdb+, portfolio analytics, dashboards
+
+**Zgodność z Anthropic Skills:**
+- ✅ Frontmatter limits (name ≤64, description ≤1024)
+- ✅ Structured sections (Instructions, Tools, Examples, References)
+- ✅ Progressive disclosure design
+- ✅ Composable with other Skills
+
 ---
 
 ## 🚀 Szybki start
@@ -131,6 +165,10 @@ claude-code
 | "Zbuduj trading system z order management" | `quantitative-finance` |
 | "Backtest momentum strategy" | `quantitative-finance` + `python-programming` |
 | "Optymalizuj portfolio używając mean-variance" | `quantitative-finance` |
+| "Zredukuj P99 latencji feed-handlera <50 µs" | `senior-quantitative-developer` |
+| "Walk-forward dla momentum z kosztami i leakage checks" | `senior-quantitative-researcher` |
+| "Dashboard TCA i korekty execution (vol regime)" | `senior-systematic-trader` |
+| "Przegląd attribution i korekty sizingu/hedgingu" | `senior-quantitative-trader` |
 | "Deploy ML model do produkcji" | `machine-learning` + `software-engineering` |
 | "Factor analysis dla trading strategy" | `quantitative-finance` + `machine-learning` |
 
@@ -193,7 +231,18 @@ Claude użyje:
 | Software Engineering | 28 KB | 20 | 40+ | SOLID, architecture, CI/CD |
 | Machine Learning | 27 KB | 25 | 50+ | ML workflow, PyTorch, MLOps |
 | Quantitative Finance | 58 KB | 18 | 60+ | Trading, backtesting, portfolio |
-| **TOTAL** | **125 KB** | **78** | **180+** | **4 domeny** |
+| **Senior Quant Developer** | **3 KB** | **9** | **3** | **Low-latency, observability** |
+| **Senior Quant Researcher** | **2.5 KB** | **9** | **3** | **Alpha research, validation** |
+| **Senior Systematic Trader** | **2 KB** | **9** | **3** | **TCA, execution, governance** |
+| **Senior Quant Trader** | **2 KB** | **9** | **3** | **Portfolio, attribution, KPIs** |
+| **TOTAL** | **~135 KB** | **~105** | **~190+** | **8 Skills** |
+
+### ✅ Zgodność z Anthropic Skills Framework:
+- **Progressive disclosure**: metadata → instructions → resources (load only what's needed)
+- **Composable**: Skills automatycznie współpracują (np. quant-researcher + machine-learning)
+- **Portable**: ten sam format działa w Claude.ai, Claude Code i API
+- **Efficient**: frontmatter limits (name ≤64, description ≤1024) zapewniają szybkie ładowanie
+- **Structured**: sekcje Instructions, Tools, Examples, References zgodne z best practices
 
 ---
 
@@ -233,15 +282,33 @@ Claude użyje:
 
 Zobacz szczegółowe instrukcje:
 - **INSTALLATION.md** - Instalacja i troubleshooting
-- **EXAMPLES.md** - Praktyczne przykłady promptów
+- **EXAMPLES.md** - Praktyczne przykłady promptów i scenariusze
+- **COMPLIANCE.md** - Pełna weryfikacja zgodności z oficjalną dokumentacją Anthropic
+- **VERIFICATION.md** - Finalna weryfikacja jakości i production readiness
 
 ---
 
 ## 📚 Oficjalne zasoby
 
-- [Claude Skills Documentation](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview)
-- [Anthropic Engineering Blog](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
-- [Anthropic Skills GitHub](https://github.com/anthropics/skills)
+### Anthropic Skills Documentation:
+- [Introducing Agent Skills](https://www.anthropic.com/news/skills) - główne ogłoszenie
+- [Skills Overview](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) - pełna dokumentacja
+- [Skills Quickstart](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/quickstart) - szybki start
+- [Skills Best Practices](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices) - najlepsze praktyki
+- [Skills Cookbook](https://github.com/anthropics/claude-cookbooks/tree/main/skills) - przykłady
+
+### Top Quant Firms (źródła dla role-specific Skills):
+- [Citadel Securities](https://www.citadelsecurities.com/careers/)
+- [Jane Street](https://www.janestreet.com/join-jane-street/)
+- [Hudson River Trading](https://www.hudsonrivertrading.com/careers/)
+- [Jump Trading](https://www.jumptrading.com/careers/)
+- [Two Sigma](https://www.twosigma.com/careers/)
+- [Point72 (Cubist)](https://www.point72.com/careers/)
+- [PDT Partners](https://www.pdtpartners.com/careers/)
+- [Arrowstreet Capital](https://www.arrowstreetcapital.com/careers/)
+- [Renaissance Technologies](https://www.rentec.com/)
+- [Radix Trading](https://www.radix-trading.com/careers/)
+- [TGS Management](https://www.tgsmanagement.com/careers/)
 
 ---
 
@@ -249,13 +316,43 @@ Zobacz szczegółowe instrukcje:
 
 Twoje Skills są gotowe. Claude będzie automatycznie używał ich gdy zauważy odpowiedni kontekst w Twoich pytaniach.
 
-**Szybki test:**
+**Szybki test - podstawowy:**
 ```bash
 # W Claude Code
 "Napisz backtesting framework z transaction costs i slippage modeling"
-
 # Claude automatycznie użyje quantitative-finance skill! 🚀
 ```
+
+**Szybki test - role-specific:**
+```bash
+# Test dla Senior Quantitative Developer
+"Reduce P99 latency of market data handler to < 100 µs and show profiling results"
+# Claude użyje: senior-quantitative-developer
+
+# Test dla Senior Quantitative Researcher
+"Conduct walk-forward validation for mean-reversion with bias checks"
+# Claude użyje: senior-quantitative-researcher
+
+# Test dla Senior Systematic Trader
+"Build TCA dashboard and optimize execution parameters"
+# Claude użyje: senior-systematic-trader
+
+# Test dla Senior Quantitative Trader
+"Prepare attribution analysis and recommend portfolio adjustments"
+# Claude użyje: senior-quantitative-trader
+```
+
+## ✅ Checklist zgodności z Anthropic
+
+Wszystkie Skills w tym pakiecie spełniają oficjalne wymagania:
+
+- [x] **Frontmatter limits**: name ≤64, description ≤1024 znaków
+- [x] **Structured format**: Instructions → Tools → Examples → References
+- [x] **Progressive disclosure**: metadata zawsze, content on-demand
+- [x] **Composability**: Skills współpracują automatycznie
+- [x] **Portability**: format kompatybilny z Claude.ai, Code, API
+- [x] **Quality**: oparte na najlepszych firmach (Citadel, Jane Street, HRT, etc.)
+- [x] **Documentation**: pełne linki do źródeł i oficjalnej dokumentacji Anthropic
 
 ---
 

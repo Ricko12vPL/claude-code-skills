@@ -9,6 +9,13 @@ Otrzymałeś 4 profesjonalne Skills dla Claude Code:
 3. **machine-learning** - ML/DL, algorytmy, training, deployment, MLOps
 4. **quantitative-finance** - Trading algorithms, quant research, systematic trading
 
+oraz 4 role-specific Skills dla quantitative trading:
+
+- **senior-quantitative-developer** (w `quantitative-finance/`)
+- **senior-quantitative-researcher** (w `quantitative-finance/`)
+- **senior-systematic-trader** (w `quantitative-finance/`)
+- **senior-quantitative-trader** (w `quantitative-finance/`)
+
 ## 🚀 Instalacja
 
 ### Metoda 1: Personal Skills (Zalecana)
@@ -23,6 +30,17 @@ cp -r machine-learning ~/.claude/skills/
 cp -r quantitative-finance ~/.claude/skills/
 ```
 
+Role-specific Skills (opcjonalnie możesz skopiować tylko pliki *.SKILL.md):
+
+```bash
+# Przykład: zainstaluj same role-specific Skills do katalogu Quant
+mkdir -p ~/.claude/skills/quantitative-finance
+cp quantitative-finance/Senior-Quantitative-Developer.SKILL.md ~/.claude/skills/quantitative-finance/
+cp quantitative-finance/Senior-Quantitative-Researcher.SKILL.md ~/.claude/skills/quantitative-finance/
+cp quantitative-finance/Senior-Systematic-Trader.SKILL.md ~/.claude/skills/quantitative-finance/
+cp quantitative-finance/Senior-Quantitative-Trader.SKILL.md ~/.claude/skills/quantitative-finance/
+```
+
 ### Metoda 2: Project Skills
 
 Skills będą dostępne tylko w konkretnym projekcie:
@@ -34,6 +52,16 @@ cp -r python-programming .claude/skills/
 cp -r software-engineering .claude/skills/
 cp -r machine-learning .claude/skills/
 cp -r quantitative-finance .claude/skills/
+```
+
+Role-specific Skills (tylko pliki, w obrębie projektu):
+
+```bash
+mkdir -p .claude/skills/quantitative-finance
+cp quantitative-finance/Senior-Quantitative-Developer.SKILL.md .claude/skills/quantitative-finance/
+cp quantitative-finance/Senior-Quantitative-Researcher.SKILL.md .claude/skills/quantitative-finance/
+cp quantitative-finance/Senior-Systematic-Trader.SKILL.md .claude/skills/quantitative-finance/
+cp quantitative-finance/Senior-Quantitative-Trader.SKILL.md .claude/skills/quantitative-finance/
 ```
 
 ### Metoda 3: Wybiórcza instalacja
@@ -109,12 +137,17 @@ ls .claude/skills/
 # software-engineering/
 # machine-learning/
 # quantitative-finance/
+#   Senior-Quantitative-Developer.SKILL.md
+#   Senior-Quantitative-Researcher.SKILL.md
+#   Senior-Systematic-Trader.SKILL.md
+#   Senior-Quantitative-Trader.SKILL.md
 ```
 
 Każdy folder powinien zawierać plik `SKILL.md`:
 
 ```bash
 cat ~/.claude/skills/quantitative-finance/SKILL.md | head -20
+cat ~/.claude/skills/quantitative-finance/Senior-Quantitative-Developer.SKILL.md | head -20
 ```
 
 ## 🔄 Aktualizacja Skills
@@ -127,22 +160,34 @@ Aby zaktualizować Skill:
 
 ## 🎯 Struktura Skill
 
-Każdy Skill zawiera:
+Każdy Skill zawiera zgodnie z oficjalną specyfikacją Anthropic:
 
 ```yaml
 ---
-name: skill-name
-description: Co robi skill i kiedy go używać
+name: skill-name                    # max 64 znaki
+description: Co robi skill          # max 1024 znaki
 ---
 
 # Tytuł Skill
 
-## Sekcje z instrukcjami
-- Szczegółowe wskazówki
-- Przykłady kodu
-- Best practices
-- Najczęstsze błędy
+## Instructions                     # Główna sekcja instrukcji
+### When to Use                     # Kiedy użyć
+### Expected Outcomes               # Mierzalne rezultaty
+### Required Inputs                 # Wymagane dane wejściowe
+### Implementation Steps            # Krok po kroku
+### Quality Checklist               # Kontrola jakości
+### Metrics & Validation            # Metryki sukcesu
+
+## Tools & Technologies             # Stack technologiczny
+## Examples                         # Przykłady użycia
+## References                       # Linki do dokumentacji
 ```
+
+**Zgodność z Anthropic:**
+- ✅ Progressive disclosure (ładuje tylko to, co potrzebne)
+- ✅ Composable (Skills współpracują ze sobą)
+- ✅ Portable (działa w Claude.ai, Claude Code, API)
+- ✅ Efficient (minimalne obciążenie)
 
 ## 💡 Tips & Tricks
 
@@ -191,7 +236,7 @@ vim ~/.claude/skills/quantitative-finance/SKILL.md
 **Rozwiązanie:**
 1. Sprawdź lokalizację: `ls ~/.claude/skills/`
 2. Upewnij się że nazwa pliku to dokładnie `SKILL.md` (wielkie litery)
-3. Sprawdź YAML frontmatter (czy jest poprawny)
+3. Sprawdź YAML frontmatter (limity: name ≤64, description ≤1024 znaków)
 4. Zrestartuj Claude Code
 
 ### Problem: Błąd parsowania YAML
@@ -204,8 +249,19 @@ cat ~/.claude/skills/quantitative-finance/SKILL.md | head -5
 # Powinno wyglądać tak:
 # ---
 # name: quantitative-finance
-# description: Expert guidance for quantitative...
+# description: Expert guidance for algorithmic trading...
 # ---
+```
+
+### Problem: Role-specific Skills nie działają
+
+**Rozwiązanie:**
+```bash
+# Sprawdź czy pliki są we właściwej lokalizacji
+ls ~/.claude/skills/quantitative-finance/Senior-*.SKILL.md
+
+# Upewnij się że frontmatter jest poprawny
+cat ~/.claude/skills/quantitative-finance/Senior-Quantitative-Developer.SKILL.md | head -5
 ```
 
 ### Problem: Skill się nie ładuje
@@ -270,9 +326,22 @@ używając ADF test i half-life calculation"
 
 ## 📚 Dodatkowe zasoby
 
-- [Oficjalna dokumentacja Skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview)
-- [Anthropic Skills GitHub](https://github.com/anthropics/skills)
-- [Skills Engineering Blog](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
+### Oficjalna dokumentacja Anthropic:
+- [Introducing Agent Skills](https://www.anthropic.com/news/skills) - główne ogłoszenie
+- [Skills Overview](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) - dokumentacja techniczna
+- [Skills Quickstart](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/quickstart) - szybki start
+- [Skills Best Practices](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices) - najlepsze praktyki
+- [Skills Cookbook](https://github.com/anthropics/claude-cookbooks/tree/main/skills) - przykłady
+
+### Źródła dla role-specific Skills (top firms):
+- [Citadel Securities - Careers](https://www.citadelsecurities.com/careers/)
+- [Jane Street - Join](https://www.janestreet.com/join-jane-street/)
+- [Hudson River Trading - Careers](https://www.hudsonrivertrading.com/careers/)
+- [Jump Trading - Careers](https://www.jumptrading.com/careers/)
+- [Two Sigma - Careers](https://www.twosigma.com/careers/)
+- [Point72 (Cubist) - Careers](https://www.point72.com/careers/)
+- [PDT Partners - Careers](https://www.pdtpartners.com/careers/)
+- [Arrowstreet Capital - Careers](https://www.arrowstreetcapital.com/careers/)
 
 ## 🎉 Gotowe!
 
